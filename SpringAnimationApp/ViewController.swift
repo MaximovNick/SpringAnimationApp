@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet var coreAnimationView: UIView!
+    
+    private var animationStarted = false
+    
+    @IBAction func runCoreAnimation(_ sender: UIButton) {
+        sender.pulsate()
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            options: [.autoreverse, .repeat]) {
+                if !self.animationStarted {
+                    self.coreAnimationView.frame.origin.x -= 40
+                    self.animationStarted.toggle()
+                }
+            }
     }
-
-
 }
 
