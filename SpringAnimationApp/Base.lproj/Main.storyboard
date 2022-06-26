@@ -13,7 +13,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpringAnimationApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="SpringButton" customModule="Spring">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -33,8 +33,13 @@
                                     <constraint firstItem="qIP-qv-UzT" firstAttribute="centerX" secondItem="XUe-tF-2Gz" secondAttribute="centerX" id="FZE-rY-Lkl"/>
                                     <constraint firstItem="qIP-qv-UzT" firstAttribute="centerY" secondItem="XUe-tF-2Gz" secondAttribute="centerY" id="hlr-B1-zUd"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCF-g9-4fK">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCF-g9-4fK" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="87" y="252" width="240" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spring Animation View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Y7-yQt">
@@ -50,6 +55,20 @@
                                     <constraint firstItem="NaY-Y7-yQt" firstAttribute="centerY" secondItem="YCF-g9-4fK" secondAttribute="centerY" id="ZM9-e2-NJr"/>
                                     <constraint firstAttribute="height" constant="128" id="gWY-F7-QT3"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easein"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxs-Qi-mT3">
                                 <rect key="frame" x="87" y="624" width="240" height="39"/>
@@ -68,7 +87,7 @@
                                     <action selector="runCoreAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSK-pL-IVq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRD-Pv-uml">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRD-Pv-uml" customClass="SpringButton" customModule="Spring">
                                 <rect key="frame" x="87" y="703" width="240" height="39"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -80,7 +99,16 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="morph"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeinOut"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="springAnimationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="voT-Oy-t6L"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -102,6 +130,7 @@
                     </view>
                     <connections>
                         <outlet property="coreAnimationView" destination="XUe-tF-2Gz" id="FEO-g2-vjD"/>
+                        <outlet property="springAnimationView" destination="YCF-g9-4fK" id="xwk-Jp-MxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
